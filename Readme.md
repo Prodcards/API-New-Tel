@@ -1,4 +1,4 @@
-[![](https://github.com/prodcards/API-New-Tel/blob/main/logo.svg)]
+![](https://github.com/prodcards/API-New-Tel/blob/main/logo.svg)
 # Группа методов для управления компанией в контексте абонента «Нью-Тел» (company/*)
 
 Получение информации о компании: текущее состояние, информация о сотрудниках, номерах телефонов, тарифах, расходах и пр.

@@ -50,17 +50,20 @@ company/get-state
     BODY
         {}
 ### Пример ответа
-     {
-        "status":"success",
-        "data":{
-            "result":"success",
-            "state":{
-                 "balance":-131,
-                 "credit":0,
-                 "currency":"RUB",
-                 "dayTrafficCost":0,
-                 "monthTrafficCost":33.08,
-                 "status":"active"
-                        }
-                   }
-     }
+    STATUS: 200 OK
+     
+    BODY
+    {
+	    "status": "success",
+	    "data": {
+    		"result": "success",
+	    	"state": {
+		    	"balance": -131,
+			    "credit": 0,
+			    "currency": "RUB",
+			    "dayTrafficCost": 0,
+			    "monthTrafficCost": 33.08,
+			    "status": "active"
+		    }
+	    }
+    }     

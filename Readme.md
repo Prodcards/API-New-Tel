@@ -55,15 +55,16 @@ company/get-state
 		"data": {
 			"result": "success",
 			"state": {
-			"balance": -131,
-			"credit": 0,
-			"currency": "RUB",
-			"dayTrafficCost": 0,
-			"monthTrafficCost": 33.08,
-			"status": "active"
+				"balance": -131,
+				"credit": 0,
+				"currency": "RUB",
+				"dayTrafficCost": 0,
+				"monthTrafficCost": 33.08,
+				"status": "active"
 			}
 		}
 	}
+	
 <a name="2"></a>
 ## Получение информации из профиля компании
 Метод возвращает данные профиля компании: ID, наименование, сведения о регистрации и пр.
@@ -98,31 +99,18 @@ BODY
 	BODY
 
 	{
-
 		"status": "success",
-
 		"data": {
-
 			"result": "success",
-
 			"profileDetails": {
-
 				"id": 7701,
-
 				"companyName": "Нью-Тел Проверка системы",
-
 				"registeredBy": "ООО «Нью-Тел»",
-
 				"registeredOn": 1607762100,
-
 				"agreementNumber": "7701-121220/U/CP",
-
 				"agreementDate": "2020-12-12"
-
 			}
-
 		}
-
 	}
 	
 <a name="3"></a>
@@ -157,81 +145,61 @@ company/get-members
 ### Пример ответа
 
 	STATUS: 200 OK
+	
 	BODY
+	
 	{
 		"status": "success",
 		"data": {
 			"result": "success",
-			"members": [
-				{
+			"members": [{
 				"id": 9423,
 				"name": "Иванов Сергей Иванович",
 				"email": "prostoforce1995@mail.ru",
 				"internalNumber": "900",
 				"personalNumber": "79311110714",
 				"timeZone": "Europe/Moscow"
-				}
-			]
-
+			}]
 		}
-
 	}
 	
 <a name="4"></a>
 ## Получение списка сотрудников компании
-
 Метод возвращает список с именами всех сотрудников компании.
-
 ### Наименование метода
-
 company/get-members-list
-
 ### Атрибуты запроса
-
 Нет
-
 ### Пример запроса
 
-URL
-
-https://api.new-tel.net/company/get-members-list
-
-HEAD
-
-Authorization: Bearer df9b7fg89n79...
-
-Content-Type: application/json
-
-BODY
-
-{}
+	URL
+		https://api.new-tel.net/company/get-members-list
+	HEAD
+		Authorization: Bearer df9b7fg89n79...
+		Content-Type: application/json
+	BODY
+		{}
 
 ### Атрибуты ответа
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-| membersList | Array\_string | Да | Строковой массив со списком сотрудников компании, в качестве значения передается имена сотрудников |
- |
+| membersList | Array_string | Да | Строковой массив со списком сотрудников компании, в качестве значения передается имена сотрудников|
 
 ### Пример ответа
 
-STATUS: 200 OK
-
-BODY
-
-{
-
-"status": "success",
-
-"data": {
-
-"result": "success",
-
-"membersList": ["Сергей", "Игорь"]
-
-}
-
-}
+	STATUS: 200 OK
+	
+	BODY
+	
+	{
+		"status": "success",
+		"data": {
+			"result": "success",
+			"membersList": ["Сергей", "Игорь"]
+		}
+	}
+	
 <a name="5"></a>
 ## Получение информации из профиля сотрудника компании
 Метод возвращает данные профиля сотрудника компании: имя, email, номера телефонов и пр.
@@ -280,100 +248,63 @@ STATUS: 200 OK
 BODY
 
 {
-
-"status": "success",
-
-"data": {
-
-"result": "success",
-
-"memberDetails": {
-
-"id": 9862,
-
-"name": "Игорь",
-
-"email": "shilovigor@new-tel.net",
-
-"internalNumber": "303",
-
-"personalNumber": null,
-
-"timeZone": "Europe/Moscow"
-
+	"status": "success",
+	"data": {
+		"result": "success",
+		"memberDetails": {
+			"id": 9862,
+			"name": "Игорь",
+			"email": "shilovigor@new-tel.net",
+			"internalNumber": "303",
+			"personalNumber": null,
+			"timeZone": "Europe/Moscow"
+		}
+	}
 }
-
-}
-
-}
+	
 <a name="6"></a>
 ## Получение списков номеров телефонов компании
-
 Метод возвращает списки номеров телефонов компании, сгруппированных по типу.
-
 ### Наименование метода
-
 company/get-numbers
-
 ### Атрибуты запроса
-
 Нет
-
 ### Пример запроса
 
-URL
-
-https://api.new-tel.net/company/get-numbers
-
-HEAD
-
-Authorization: Bearer df9b7fg89n79…
-
-Content-Type: application/json
-
-BODY
-
-{}
+	URL
+		https://api.new-tel.net/company/get-numbers
+	HEAD
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
+	BODY
+		{}
 
 ### Атрибуты ответа
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
 | numbers | Object | Да | Объект содержит 3 массива, external, internal и virtual |
-|external |
- | Да | Cписок внешних номеров телефонов. |
-|internal |
- | Да | Cписок внутренних номеров телефонов. |
-|virtual |
- | Да | Cписок виртуальных номеров телефонов. |
+|external | | Да | Cписок внешних номеров телефонов. |
+|internal | | Да | Cписок внутренних номеров телефонов. |
+|virtual | | Да | Cписок виртуальных номеров телефонов. |
 
 ### Пример ответа
 
-STATUS: 200 OK
+	STATUS: 200 OK
 
-BODY
+	BODY
 
-{
-
-"status": "success",
-
-"data": {
-
-"result": "success",
-
-"numbers": {
-
-"external": ["74951089830", "74956408992", "74997540086", "78007776117", "78122428679", "79311110537", "79311110714"],
-
-"internal": ["100", "101", "111", "303", "900", "902"],
-
-"virtual": []
-
-}
-
-}
-
-}
+	{
+		"status": "success",
+		"data": {
+			"result": "success",
+			"numbers": {
+				"external": ["74951089830", "74956408992", "74997540086", "78007776117", "78122428679", "79311110537", "79311110714"],
+				"internal": ["100", "101", "111", "303", "900", "902"],
+				"virtual": []
+			}
+		}
+	}
 
 # Группа методов для управления аккаунтом авторизованного пользователя (user/*)
 

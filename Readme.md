@@ -26,13 +26,13 @@ company/get-state
 ### Атрибуты запроса
 нет
 ### Пример запроса
-URI
-	https://api.new-tel.net/company/get-state
-HEAD
-	Authorization: Bearer df9b7fg89n79...
-	Content-Type: application/json
-BODY
-{}
+	URI
+		https://api.new-tel.net/company/get-state
+	HEAD
+		Authorization: Bearer df9b7fg89n79...
+		Content-Type: application/json
+	BODY
+	{}
 ### Атрибуты ответа
 
 | Атрибут | Тип данных | Обяз. | Примечание |
@@ -55,26 +55,24 @@ BODY
  |
 
 ### Пример ответа
+	STATUS: 200 OK
 
-STATUS: 200 OK
+	BODY
 
-BODY
-
-{
-	"status": "success",
-	"data": {
-		"result": "success",
-		"state": {
-		"balance": -131,
-		"credit": 0,
-		"currency": "RUB",
-		"dayTrafficCost": 0,
-		"monthTrafficCost": 33.08,
-		"status": "active"
+	{
+		"status": "success",
+		"data": {
+			"result": "success",
+			"state": {
+			"balance": -131,
+			"credit": 0,
+			"currency": "RUB",
+			"dayTrafficCost": 0,
+			"monthTrafficCost": 33.08,
+			"status": "active"
+			}
 		}
 	}
-}
-
 ## Получение информации из профиля компании
 Метод возвращает данные профиля компании: ID, наименование, сведения о регистрации и пр.
 ### Наименование метода

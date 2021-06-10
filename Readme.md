@@ -49,21 +49,20 @@ company/get-state
 	STATUS: 200 OK
 
 	BODY
-
-	{
-		"status": "success",
-		"data": {
-			"result": "success",
-			"state": {
-				"balance": -131,
-				"credit": 0,
-				"currency": "RUB",
-				"dayTrafficCost": 0,
-				"monthTrafficCost": 33.08,
-				"status": "active"
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"state": {
+					"balance": -131,
+					"credit": 0,
+					"currency": "RUB",
+					"dayTrafficCost": 0,
+					"monthTrafficCost": 33.08,
+					"status": "active"
+				}
 			}
 		}
-	}
 	
 <a name="2"></a>
 ## Получение информации из профиля компании
@@ -80,6 +79,7 @@ company/get-profile-details
 		Content-Type: application/json
 	BODY
 		{}
+	
 ### Атрибуты ответа
 
 | Атрибут | Тип данных | Обяз. | Примечание |
@@ -97,21 +97,20 @@ company/get-profile-details
 	STATUS: 200 OK
 
 	BODY
-
-	{
-		"status": "success",
-		"data": {
-			"result": "success",
-			"profileDetails": {
-				"id": 7701,
-				"companyName": "Нью-Тел Проверка системы",
-				"registeredBy": "ООО «Нью-Тел»",
-				"registeredOn": 1607762100,
-				"agreementNumber": "7701-121220/U/CP",
-				"agreementDate": "2020-12-12"
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"profileDetails": {
+					"id": 7701,
+					"companyName": "Нью-Тел Проверка системы",
+					"registeredBy": "ООО «Нью-Тел»",
+					"registeredOn": 1607762100,
+					"agreementNumber": "7701-121220/U/CP",
+					"agreementDate": "2020-12-12"
+				}
 			}
 		}
-	}
 	
 <a name="3"></a>
 ## Получение информации о сотрудниках компании
@@ -147,21 +146,20 @@ company/get-members
 	STATUS: 200 OK
 	
 	BODY
-	
-	{
-		"status": "success",
-		"data": {
-			"result": "success",
-			"members": [{
-				"id": 9423,
-				"name": "Иванов Сергей Иванович",
-				"email": "prostoforce1995@mail.ru",
-				"internalNumber": "900",
-				"personalNumber": "79311110714",
-				"timeZone": "Europe/Moscow"
-			}]
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"members": [{
+					"id": 9423,
+					"name": "Иванов Сергей Иванович",
+					"email": "prostoforce1995@mail.ru",
+					"internalNumber": "900",
+					"personalNumber": "79311110714",
+					"timeZone": "Europe/Moscow"
+				}]
+			}
 		}
-	}
 	
 <a name="4"></a>
 ## Получение списка сотрудников компании
@@ -190,15 +188,14 @@ company/get-members-list
 
 	STATUS: 200 OK
 	
-	BODY
-	
-	{
-		"status": "success",
-		"data": {
-			"result": "success",
-			"membersList": ["Сергей", "Игорь"]
+	BODY	
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"membersList": ["Сергей", "Игорь"]
+			}
 		}
-	}
 	
 <a name="5"></a>
 ## Получение информации из профиля сотрудника компании
@@ -219,9 +216,9 @@ company/get-member-details
 		Authorization: Bearer df9b7fg89n79…
 		Content-Type: application/json
 	BODY
-	{
-		"name": "Игорь"
-	}
+		{
+			"name": "Игорь"
+		}
 
 ### Атрибуты ответа
 
@@ -246,7 +243,6 @@ company/get-member-details
 STATUS: 200 OK
 
 BODY
-
 	{
 		"status": "success",
 		"data": {
@@ -293,18 +289,17 @@ company/get-numbers
 	STATUS: 200 OK
 
 	BODY
-
-	{
-		"status": "success",
-		"data": {
-			"result": "success",
-			"numbers": {
-				"external": ["74951089830", "74956408992", "74997540086", "78007776117", "78122428679", "79311110537", "79311110714"],
-				"internal": ["100", "101", "111", "303", "900", "902"],
-				"virtual": []
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"numbers": {
+					"external": ["74951089830", "74956408992", "74997540086", "78007776117", "78122428679", "79311110537", "79311110714"],
+					"internal": ["100", "101", "111", "303", "900", "902"],
+					"virtual": []
+				}
 			}
 		}
-	}
 
 # Группа методов для управления аккаунтом авторизованного пользователя (user/*)
 
@@ -314,7 +309,6 @@ company/get-numbers
 
 [Получение информации из профиля авторизованного пользователя](#7)
 
-##
 <a name="7"></a>
 ## Получение информации из профиля авторизованного пользователя
 
@@ -330,19 +324,13 @@ user/get-profile-details
 
 ### Пример запроса
 
-URL
-
-https://api.new-tel.net/user/get-profile-details
-
-HEAD
-
-Authorization: Bearer df9b7fg89n79…
-
-Content-Type: application/json
-
-BODY
-
-{}
+	URL
+		https://api.new-tel.net/user/get-profile-details
+	HEAD
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
+	BODY
+		{}
 
 ### Атрибуты ответа
 
@@ -361,34 +349,20 @@ BODY
 	STATUS: 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"profileDetails": {
-
-	"id": 10185,
-
-	"name": "evgen",
-
-	"email": "boriso1155151@gmail.com",
-
-	"internalNumber": "902",
-
-	"personalNumber": "79311110537",
-
-	"timeZone": "Europe/Moscow"
-
-	}
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"profileDetails": {
+					"id": 10185,
+					"name": "evgen",
+					"email": "boriso1155151@gmail.com",
+					"internalNumber": "902",
+					"personalNumber": "79311110537",
+					"timeZone": "Europe/Moscow"
+				}
+			}
+		}
 
 # Группа методов для генерации вызовов (call/*)
 
@@ -432,10 +406,10 @@ call/start-simple-call
 		Content-Type: application/json
 	BODY
 		{
-		"callid": "79168457854",
-		"dstNumber": "79035675124",
-		"srcNumber": "303",
-		"timeout": 20
+			"callid": "79168457854",
+			"dstNumber": "79035675124",
+			"srcNumber": "303",
+			"timeout": 20
 		}
 
 ### Атрибуты ответа
@@ -454,22 +428,14 @@ call/start-simple-call
 	STATUS 200 OK
 
 	BODY
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callId": "1234567890123456"
+			}
+		}
 
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callId": "1234567890123456"
-
-	}
-
-	}
-
-##
 <a name="9"></a>
 ## Инициирование вызова системы  CallPassword
 
@@ -493,27 +459,16 @@ call/start-password-call
 ### Пример запроса
 
 	URL
-
 		https://api.new-tel.net/call/start-simple-call
-
 	HEAD
-
 		Authorization: Bearer df9b7fg89n79…
-
 		Content-Type: application/json
-
 	BODY
-
 		{
-
-		"async": 0,
-
-		"dstNumber": "79035675124",
-
-		"pin": "41236",
-
-		"timeout": 5
-
+			"async": 0,
+			"dstNumber": "79035675124",
+			"pin": "41236",
+			"timeout": 5
 		}
 
 ### Атрибуты ответа
@@ -538,40 +493,23 @@ call/start-password-call
 	STATUS: 200 OK
 
 	BODY
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callDetails": {
+					"callId": "2096093321622464437",
+					"pin": "78514",
+					"status": null,
+					"oper": "ПАО Вымпел-Коммуникации",
+					"region": "г. Москва и Московская область",
+					"isValidNumber": true,
+					"reasonCode": null,
+					"phoneNumber": null
+				}
+			}
+		}
 
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callDetails": {
-
-	"callId": "2096093321622464437",
-
-	"pin": "78514",
-
-	"status": null,
-
-	"oper": "ПАО Вымпел-Коммуникации",
-
-	"region": "г. Москва и Московская область",
-
-	"isValidNumber": true,
-
-	"reasonCode": null,
-
-	"phoneNumber": null
-
-	}
-
-	}
-
-	}
-
-##
 <a name="10"></a>
 ## Инициирование голосового вызова системы CallPassword
 
@@ -594,29 +532,18 @@ call/start-voice-password-call
 
 ### Пример запроса
 
-URL
-
-https://api.new-tel.net/call/start-voice-simple-call
-
-HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+	URL
+		https://api.new-tel.net/call/start-voice-simple-call
+	HEAD
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"async": 0,
-
-	"dstNumber": "79035675124",
-
-	"text": "ВашПИНкод 1236",
-
-	"timeout": 10
-
-	}
+		{
+			"async": 0,
+			"dstNumber": "79035675124",
+			"text": "ВашПИНкод 1236",
+			"timeout": 10
+		}
 
 ### Атрибуты ответа
 
@@ -640,38 +567,22 @@ HEAD
 	STATUS: 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callDetails": {
-
-	"callId": "2096093321622464437",
-
-	"pin": "78514",
-
-	"status": null,
-
-	"oper": "ПАО Вымпел-Коммуникации",
-
-	"region": "г. Москва и Московская область",
-
-	"isValidNumber": true,
-
-	"reasonCode": null,
-
-	"phoneNumber": null
-
-	}
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callDetails": {
+					"callId": "2096093321622464437",
+					"pin": "78514",
+					"status": null,
+					"oper": "ПАО Вымпел-Коммуникации",
+					"region": "г. Москва и Московская область",
+					"isValidNumber": true,
+					"reasonCode": null,
+					"phoneNumber": null
+				}
+			}
+		}
 	
 <a name="11"></a>
 ## Получение идентификатора вызова в виртуальной АТС
@@ -691,22 +602,14 @@ call/get-vpbx-id
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/call/get-vpbx-idl
-
+		https://api.new-tel.net/call/get-vpbx-idl
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"callId": "1234567890123456"
-
-	}
+		{
+			"callId": "1234567890123456"
+		}
 
 ### Атрибуты ответа
 
@@ -723,20 +626,13 @@ call/get-vpbx-id
 	STATUS: 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"vpbxId": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"vpbxId": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+			}
+		}
 
 # Группа методов для взаимодействия с вызовами в контексте виртуальной АТС (vpbx/\*)
 
@@ -813,18 +709,12 @@ vpbx/get-calls
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-calls
-
+		https://api.new-tel.net/vpbx/get-calls
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{}
+		{}
 
 ### Атрибуты ответа
 
@@ -852,40 +742,23 @@ vpbx/get-calls
 	STATUS: 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"calls": [{
-
-	"vpbxId": "e935025c738c35a3f9c2ef1f0dd90db6f921e845",
-
-	"direction": "out",
-
-	"startTime": 1620311786,
-
-	"answerTime": 1620311793,
-
-	"endTime": 1620311800,
-
-	"status": "answered",
-
-	"active": false,
-
-	"clid": "303",
-
-	"dnid": "79397085955"
-
-	}]
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"calls": [{
+					"vpbxId": "e935025c738c35a3f9c2ef1f0dd90db6f921e845",
+					"direction": "out",
+					"startTime": 1620311786,
+					"answerTime": 1620311793,
+					"endTime": 1620311800,
+					"status": "answered",
+					"active": false,
+					"clid": "303",
+					"dnid": "79397085955"
+				}]
+			}
+		}
 
 <a name="13"></a>
 ## Получение списка вызовов за 24 часа
@@ -903,18 +776,12 @@ vpbx/get-calls-list
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-calls-list
-
+		https://api.new-tel.net/vpbx/get-calls-list
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{}
+		{}
 
 ### Атрибуты ответа
 
@@ -925,28 +792,17 @@ vpbx/get-calls-list
 	STATUS 200 OK
 
 	BODY
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callsList": [
+					"da39a3ee5e6b4b0d3255bfef95601890afd80709",
+					"943a702d06f34599aee1f8da8ef9f7296031d699"
+				]
+			}
+		}
 
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callsList": [
-
-	"da39a3ee5e6b4b0d3255bfef95601890afd80709",
-
-	"943a702d06f34599aee1f8da8ef9f7296031d699"
-
-	]
-
-	}
-
-	}
-
-##
 <a name="14"></a>
 ## Получение данных об активных вызовах
 
@@ -963,18 +819,12 @@ vpbx/get-active-calls
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/user/get-active-calls
-
+		https://api.new-tel.net/user/get-active-calls
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{}
+		{}
 
 ### Атрибуты ответа
 
@@ -1002,40 +852,23 @@ vpbx/get-active-calls
 	STATUS: 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"activeCalls": [{
-
-	"vpbxId": "6e422df412d790bc7d849ef39c330defd5297854",
-
-	"direction": "in",
-
-	"startTime": 1620397311,
-
-	"answerTime": null,
-
-	"endTime": 1620397312,
-
-	"status": "no answer",
-
-	"active": true,
-
-	"clid": "79852638590",
-
-	"dnid": "78122428679"
-
-	}]
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"activeCalls": [{
+					"vpbxId": "6e422df412d790bc7d849ef39c330defd5297854",
+					"direction": "in",
+					"startTime": 1620397311,
+					"answerTime": null,
+					"endTime": 1620397312,
+					"status": "no answer",
+					"active": true,
+					"clid": "79852638590",
+					"dnid": "78122428679"
+				}]
+			}
+		}
 
 <a name="15"></a>
 ## Получение списка активных вызовов
@@ -1053,18 +886,12 @@ vpbx/get-active-calls-list
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-active-calls-list
-
+		https://api.new-tel.net/vpbx/get-active-calls-list
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{}
+		{}
 
 ### Атрибуты ответа
 
@@ -1077,23 +904,14 @@ vpbx/get-active-calls-list
 	STATUS: 200 OK
 
 	BODY
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"activeCallsList": ["70bf5ef3002f3075c78bd24faf2d360c6e358299"]
+			}
+		}
 
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"activeCallsList": ["70bf5ef3002f3075c78bd24faf2d360c6e358299"]
-
-	}
-
-	}
-
-##
-	
 <a name="16"></a>
 ## Получение полных данных о вызове
 
@@ -1112,22 +930,14 @@ vpbx/get-call-details
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-call-details
-
+		https://api.new-tel.net/vpbx/get-call-details
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
-
-	}
+		{
+			"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
+		}
 
 ### Атрибуты ответа
 
@@ -1161,44 +971,25 @@ vpbx/get-call-details
 	STATUS: 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callDetails": {
-
-	"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160",
-
-	"direction": "in",
-
-	"startTime": 1620390705,
-
-	"answerTime": 1620390708,
-
-	"endTime": 1620390710,
-
-	"status": "answered",
-
-	"active": false,
-
-	"clid": "79616087636",
-
-	"dnid": "78122428679",
-
-	"answeredNumbers": ["101"],
-
-	"firstAnsweredNumber": "101"
-
-	}
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callDetails": {
+					"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160",
+					"direction": "in",
+					"startTime": 1620390705,
+					"answerTime": 1620390708,
+					"endTime": 1620390710,
+					"status": "answered",
+					"active": false,
+					"clid": "79616087636",
+					"dnid": "78122428679",
+					"answeredNumbers": ["101"],
+					"firstAnsweredNumber": "101"
+				}
+			}
+		}
 
 <a name="17"></a>
 ## Получение направления вызова
@@ -1223,22 +1014,14 @@ vpbx/get-call-direction
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-call-direction
-
+		https://api.new-tel.net/vpbx/get-call-direction
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
-
-	}
+		{
+			"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
+		}
 
 ### Атрибуты ответа
 
@@ -1260,20 +1043,13 @@ vpbx/get-call-direction
 	STATUS: 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callDirection": "in"
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callDirection": "in"
+			}
+		}
 	
 <a name="18"></a>
 ## Получение статуса вызова
@@ -1298,22 +1074,14 @@ vpbx/get-call-status
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-call-status
-
+		https://api.new-tel.net/vpbx/get-call-status
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
-
-	}
+		{
+			"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
+		}
 
 ### Атрибуты ответа
 
@@ -1335,20 +1103,13 @@ vpbx/get-call-status
 	STATUS: 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callStatus": "answered"
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callStatus": "answered"
+			}
+		}
 
 <a name="19"></a>
 ## Получение времени начала вызова
@@ -1373,22 +1134,14 @@ vpbx/get-call-start-time
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-call-start-time
-
+		https://api.new-tel.net/vpbx/get-call-start-time
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
-
-	}
+		{
+			"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
+		}
 
 ### Атрибуты ответа
 
@@ -1407,20 +1160,13 @@ vpbx/get-call-start-time
 	STATUS: 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callStartTime": 1620390705
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callStartTime": 1620390705
+			}
+		}
 
 <a name="20"></a>
 ## Получение времени ответа на вызов
@@ -1445,22 +1191,14 @@ vpbx/get-call-answer-time
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-call-answer-time
-
+		https://api.new-tel.net/vpbx/get-call-answer-time
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
-
-	}
+		{
+			"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
+		}
 
 ### Атрибуты ответа
 
@@ -1479,22 +1217,14 @@ vpbx/get-call-answer-time
 	STATUS: 200 OK
 
 	BODY
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callAnswerTime": 1620390708
+			}
+		}
 
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callAnswerTime": 1620390708
-
-	}
-
-	}
-
-##
 <a name="21"></a>
 ## Получение времени окончания вызова
 
@@ -1518,22 +1248,14 @@ vpbx/get-call-end-time
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-call-end-time
-
+		https://api.new-tel.net/vpbx/get-call-end-time
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
-
-	}
+		{
+			"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
+		}
 
 ### Атрибуты ответа
 
@@ -1552,22 +1274,14 @@ vpbx/get-call-end-time
 	STATUS: 200 OK
 
 	BODY
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callEndTime": 1620311800
+			}
+		}
 
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callEndTime": 1620311800
-
-	}
-
-	}
-
-##
 <a name="22"></a>
 ## Получение номера вызывающего (номера А) для входящего вызова
 
@@ -1591,22 +1305,14 @@ vpbx/get-inbound-call-clid
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-inbound-call-clid
-
+		https://api.new-tel.net/vpbx/get-inbound-call-clid
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+ 		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
-
-	}
+		{
+			"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
+		}
 
 ### Атрибуты ответа
 
@@ -1626,22 +1332,14 @@ vpbx/get-inbound-call-clid
 	STATUS: 200 OK
 
 	BODY
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callClid": "79616087636"
+			}
+		}
 
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callClid": "79616087636"
-
-	}
-
-	}
-
-##
 <a name="23"></a>
 ## Получение номера вызываемого (номер Б) входящего вызова
 
@@ -1665,22 +1363,14 @@ vpbx/get-inbound-call-dnid
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-inbound-call-dnid
-
+		https://api.new-tel.net/vpbx/get-inbound-call-dnid
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
-
-	}
+		{
+			"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
+		}
 
 ### Атрибуты ответа
 
@@ -1700,22 +1390,14 @@ vpbx/get-inbound-call-dnid
 	STATUS: 200 OK
 
 	BODY
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callDnid": "78122428679"
+			}
+		}
 
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callDnid": "78122428679"
-
-	}
-
-	}
-
-##
 <a name="24"></a>
 ## Получение списка всех ответивших на входящий вызов внутренних номеров
 
@@ -1739,22 +1421,14 @@ vpbx/get-inbound-call-answered-numbers
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-inbound-call-answered-numbers
-
+		https://api.new-tel.net/vpbx/get-inbound-call-answered-numbers
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
-
-	}
+		{
+			"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
+		}
 
 ### Атрибуты ответа
 
@@ -1774,26 +1448,16 @@ vpbx/get-inbound-call-answered-numbers
 	STATUS: 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callAnsweredNumbers": [
-
-	"79616087609",
-
-	"79616087636"
-
-	]
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callAnsweredNumbers": [
+					"79616087609",
+					"79616087636"
+				]
+			}
+		}
 	
 <a name="25"></a>
 ## Получение первого ответившего на входящий вызов внутреннего номера
@@ -1818,22 +1482,14 @@ vpbx/get-inbound-call-first-answered-number
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-inbound-first-answered-numbers
-
+		https://api.new-tel.net/vpbx/get-inbound-first-answered-numbers
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
-
-	}
+		{
+			"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
+		}
 
 ### Атрибуты ответа
 
@@ -1853,22 +1509,14 @@ vpbx/get-inbound-call-first-answered-number
 	STATUS: 200 OK
 
 	BODY
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callFirstAnsweredNumber": "101"
+			}
+		}
 
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callFirstAnsweredNumber": "101"
-
-	}
-
-	}
-
-##
 <a name="26"></a>
 ## Получение внутреннего номера, осуществившего исходящий вызов
 
@@ -1892,22 +1540,14 @@ vpbx/get-outbound-call-internal-clid
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-outbound-call-internal-clid
-
+		https://api.new-tel.net/vpbx/get-outbound-call-internal-clid
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
-
-	}
+		{
+			"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
+		}
 
 ### Атрибуты ответа
 
@@ -1927,22 +1567,14 @@ vpbx/get-outbound-call-internal-clid
 	STATUS: 200 OK
 
 	BODY
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callInternalClid": "303"
+			}
+		}
 
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callInternalClid": "303"
-
-	}
-
-	}
-
-##
 <a name="27"></a>
 ## Получение номера вызывающего (номера A) исходящего вызова
 
@@ -1966,22 +1598,14 @@ vpbx/get-outbound-call-external-clid
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-outbound-call-external-clid
-
+		https://api.new-tel.net/vpbx/get-outbound-call-external-clid
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
-
-	}
+		{
+			"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
+		}
 
 ### Атрибуты ответа
 
@@ -2001,20 +1625,13 @@ vpbx/get-outbound-call-external-clid
 	STATUS 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callExternalClid": "303"
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callExternalClid": "303"
+			}
+		}
 	
 <a name="28"></a>
 ## Получение номера Б исходящего вызова
@@ -2039,22 +1656,14 @@ vpbx/get-outbound-call-dnid
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-outbound-call-dnid
-
+		https://api.new-tel.net/vpbx/get-outbound-call-dnid
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
-
-	}
+		{
+			"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
+		}
 
 ### Атрибуты ответа
 
@@ -2071,25 +1680,14 @@ vpbx/get-outbound-call-dnid
 	STATUS 200 OK
 
 	BODY
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callDnid": "79397085955"
+			}
+		}
 
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callDnid": "79397085955"
-
-	}
-
-	}
-
-###
-
-
-##
 <a name="29"></a>
 ## Получение ссылки на звукозапись разговора
 
@@ -2113,22 +1711,14 @@ vpbx/get-call-record-link
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-call-record-link
-
+		https://api.new-tel.net/vpbx/get-call-record-link
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
-
-	}
+		{
+			"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
+		}
 
 ### Атрибуты ответа
 
@@ -2144,22 +1734,14 @@ vpbx/get-call-record-link
 	STATUS 200 OK
 
 	BODY
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"callRecordLink": "https://web.new-tel.net/public/audio/rec21162031178605100770106004541338"
+			}
+		}
 
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"callRecordLink": "https://web.new-tel.net/public/audio/rec21162031178605100770106004541338"
-
-	}
-
-	}
-
-##
 <a name="30"></a>
 ## Получение списка внутренних номеров с успешно зарегистрированными SIP-аккаунтами
 
@@ -2176,18 +1758,12 @@ vpbx/get-registered-numbers-list
 ### Пример запроса
 
 	URL
-
-	[https://api.new-tel.net/vpbx/get-registered](https://api.new-tel.net/vpbx/get-registered)-numbers-list
-
+		https://api.new-tel.net/vpbx/get-registered-number-list
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{}
+		{}
 
 ### Атрибуты ответа
 
@@ -2198,26 +1774,16 @@ vpbx/get-registered-numbers-list
 	STATUS 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"registeredNumbersList": [
-
-	"100",
-
-	"200"
-
-	]
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"registeredNumbersList": [
+					"100",
+					"200"
+				]
+			}
+		}
 	
 <a name="31"></a>
 ## Получение списка внутренних номеров ,  на которые идёт вызов
@@ -2235,48 +1801,32 @@ vpbx/get-ringing-numbers-list
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-ringin-numbers-list
-
+		https://api.new-tel.net/vpbx/get-ringin-numbers-list
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
+		{}
 
-	{}
+### Атрибуты ответа
 
-	### Атрибуты ответа
+массив ringingNumbersList – список внутренних номеров, на которые идёт вызов
 
-	массив ringingNumbersList – список внутренних номеров, на которые идёт вызов
-
-	### Пример ответа
+### Пример ответа
 
 	STATUS 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"ringingNumbersList": [
-
-	"100",
-
-	"200"
-
-	]
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"ringingNumbersList": [
+					"100",
+					"200"
+				]
+			}
+		}
 
 <a name="32"></a>
 ## Получение списка внутренних номеров, на которых идёт разговор
@@ -2294,18 +1844,12 @@ vpbx/get-active-numbers-list
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/get-active-numbers-list
-
+		https://api.new-tel.net/vpbx/get-active-numbers-list
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{}
+		{}
 
 ### Атрибуты ответа
 
@@ -2316,28 +1860,17 @@ vpbx/get-active-numbers-list
 	STATUS 200 OK
 
 	BODY
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"activeNumbersList": [
+					"100",
+					"200"
+				]
+			}
+		}
 
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success",
-
-	"activeNumbersList": [
-
-	"100",
-
-	"200"
-
-	]
-
-	}
-
-	}
-
-##
 <a name="33"></a>
 ## Перехват вызова по внутреннему номеру
 
@@ -2363,24 +1896,15 @@ vpbx/get-pickup-call-by-number
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/transfer-call
-
+		https://api.new-tel.net/vpbx/transfer-call
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxid": "402ec8f63d1c6eb2b59948c67181bc196a52f160",
-
-	"toNumber": 303
-
-	}
+		{
+			"vpbxid": "402ec8f63d1c6eb2b59948c67181bc196a52f160",
+			"toNumber": 303
+		}
 
 ### Атрибуты ответа
 
@@ -2396,18 +1920,12 @@ vpbx/get-pickup-call-by-number
 	STATUS 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success"
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success"
+			}
+		}
 
 <a name="34"></a>
 ## Перехват вызова по внутреннему номеру (для звонка в состоянии дозвона)
@@ -2433,24 +1951,15 @@ vpbx/pickup-call
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/pickup-call
-
+		https://api.new-tel.net/vpbx/pickup-call
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160",
-
-	"toNumber": 303
-
-	}
+		{
+			"vpbxId": "402ec8f63d1c6eb2b59948c67181bc196a52f160",
+			"toNumber": 303
+		}
 
 ### Атрибуты ответа
 
@@ -2466,18 +1975,12 @@ vpbx/pickup-call
 	STATUS 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success"
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success"
+			}
+		}
 	
 <a name="35"></a>
 ## Перевод вызова на внутренний номер
@@ -2503,24 +2006,15 @@ vpbx/transfer-call
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/transfer-call
-
+		https://api.new-tel.net/vpbx/transfer-call
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxid": "402ec8f63d1c6eb2b59948c67181bc196a52f160",
-
-	"toNumber": 303
-
-	}
+		{
+			"vpbxid": "402ec8f63d1c6eb2b59948c67181bc196a52f160",
+			"toNumber": 303
+		}
 
 ### Атрибуты ответа
 
@@ -2536,18 +2030,12 @@ vpbx/transfer-call
 	STATUS 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success"
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success"
+			}
+		}
 	
 <a name="36"></a>
 ## Подключение к внутреннему номеру для прослушивания разговора
@@ -2573,24 +2061,15 @@ vpbx/listen-call
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/listen-call
-
+		https://api.new-tel.net/vpbx/listen-call
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxid": "402ec8f63d1c6eb2b59948c67181bc196a52f160",
-
-	"toNumber": 303
-
-	}
+		{
+			"vpbxid": "402ec8f63d1c6eb2b59948c67181bc196a52f160",
+			"toNumber": 303
+		}
 
 ### Атрибуты ответа
 
@@ -2606,18 +2085,12 @@ vpbx/listen-call
 	STATUS 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success"
-
-	}
-
-	}
+		{
+			"status": "success",
+			"data": {
+				"result": "success"
+			}
+		}
 
 <a name="37"></a>
 ## Завершение активного вызова
@@ -2642,50 +2115,32 @@ vpbx/get/hangup-call
 ### Пример запроса
 
 	URL
-
-	https://api.new-tel.net/vpbx/hangup-call
-
+		https://api.new-tel.net/vpbx/hangup-call
 	HEAD
-
-	Authorization: Bearer df9b7fg89n79…
-
-	Content-Type: application/json
-
+		Authorization: Bearer df9b7fg89n79…
+		Content-Type: application/json
 	BODY
-
-	{
-
-	"vpbxid": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
-
-	}
+		{
+			"vpbxid": "402ec8f63d1c6eb2b59948c67181bc196a52f160"
+		}
 
 ### Атрибуты ответа
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|result | String | Да | Объект result – может принимать одно из 2-х значений:
-</li><li>"success" - подключение произошло;
-</li><li>"error" - подключения не произошло
- |
+|result | String | Да | Объект result – может принимать одно из 2-х значений:<ul><li>"success" - подключение произошло;</l><li><lu><li>"error" - подключения не произошло |
 
 ### Пример ответа
 
 	STATUS 200 OK
 
 	BODY
-
-	{
-
-	"status": "success",
-
-	"data": {
-
-	"result": "success"
-
-	}
-
-	}
-
+		{
+			"status": "success",
+			"data": {
+				"result": "success"
+			}
+		}
 
 # Коды ошибок
 

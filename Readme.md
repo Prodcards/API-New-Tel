@@ -240,23 +240,23 @@ company/get-member-details
 
 ### Пример ответа
 
-STATUS: 200 OK
+	STATUS: 200 OK
 
-BODY
-	{
-		"status": "success",
-		"data": {
-			"result": "success",
-			"memberDetails": {
-				"id": 9862,
-				"name": "Игорь",
-				"email": "shilovigor@new-tel.net",
-				"internalNumber": "303",
-				"personalNumber": null,
-				"timeZone": "Europe/Moscow"
+	BODY
+		{
+			"status": "success",
+			"data": {
+				"result": "success",
+				"memberDetails": {
+					"id": 9862,
+					"name": "Игорь",
+					"email": "shilovigor@new-tel.net",
+					"internalNumber": "303",
+					"personalNumber": null,
+					"timeZone": "Europe/Moscow"
+				}
 			}
 		}
-	}
 	
 <a name="6"></a>
 ## Получение списков номеров телефонов компании

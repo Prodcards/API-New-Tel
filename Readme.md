@@ -2696,8 +2696,8 @@ vpbx/get/hangup-call
 | 402 | Bad Request | Метка времени находится за пределами допустимого диапазона. <br><br>Cообщение в свойстве ответа `"message":"Invalid request timestamp"` |
 | 403 | 403 Forbidden | Доступ запрещён (на данный момент только, когда аккаунт компании заблокирован). <br><br>Также дополнительно будет заголовок ответа. `WWW-Authenticate: Bearer error="insufficient_scope"` и сообщение в свойстве ответа `"message": "Access denied"` |
 | 404 | Not Found | Метод не существует. <br><br>Сообщение в свойстве ответа `"message": "Requested method not found"` |
-| 423 | Bad Request | Неверный формат данных запроса (при значении заголовка `Content-Type` как `application/json`). <br><br>Сообщение в свойстве ответа `"message":`Invalid JSON data"` |
+| 423 | Bad Request | Неверный формат данных запроса (при значении заголовка `Content-Type` как `application/json`). <br><br>Сообщение в свойстве ответа `"message": "Invalid JSON data"` |
 | 422 | Unprocessable entity | Неверные или отсутствующие параметры запроса. <br><br>Отсутствуют несколько обязательных параметров. Cообщение в свойстве ответа `"message": "Required parameters missing: paramName1, paramName2, paramName3"` |
-| 422 | Unprocessable entity | Неверные или отсутствующие параметры запроса. <br><br>Отсутствует один обязательный параметр. Cообщение в свойстве ответа `"message": "Required parameter missing: paramName` |
+| 422 | Unprocessable entity | Неверные или отсутствующие параметры запроса. <br><br>Отсутствует один обязательный параметр. Cообщение в свойстве ответа `"message": "Required parameter missing: paramName"` |
 | 422 | Unprocessable entity | Неверные или отсутствующие параметры запроса. <br><br>Неверный формат или данные в нескольких параметрах (только если присутствуют все обязательные параметры). Cообщение в свойстве ответа `"message": "Invalid parameters: paramName1, paramName2"`|
 | 422 | Unprocessable entity | Неверные или отсутствующие параметры запроса. Неверный формат или данные параметра (только если присутствуют все обязательные параметры).<br><br>Cообщение в свойстве ответа `"message": "Invalid parameter: paramName"` |

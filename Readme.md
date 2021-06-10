@@ -2686,7 +2686,7 @@ vpbx/get/hangup-call
 
 | HTTP-статус | Текст ошибки | Примечание |
 | --- | --- | --- |
-| 405 | Method Not Allowed | Неверный метод запроса (например, GET).<br><br>Также дополнительно будет заголовок ответа:<br><br>`Allow: POST` и сообщение в свойстве ответа <br><br>`"message": "GET not allowed"` (указывается именно текущий метод запроса). |
+| 405 | Method Not Allowed | Неверный метод запроса (например, GET).<br><br>Также дополнительно будет заголовок ответа: `Allow: POST` и сообщение в свойстве ответа`"message": "GET not allowed"` (указывается именно текущий метод запроса). |
 | 406 | Not Acceptable | Неверный заголовок `Accept`. |
 | 415 | Unsupported Media Type | Отсутствует заголовок `Content-Type`.<br><br>Сообщение в свойстве ответа "message": "Content-Type not set" |
 | 415 | Unsupported Media Type | Неверный заголовок `Content-Type`.<br><br>Сообщение в свойстве ответа "message": "Content-Type `xxx` not supported" (указывается именно текущее значение заголовка). |

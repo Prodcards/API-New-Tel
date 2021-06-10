@@ -2686,35 +2686,20 @@ vpbx/get/hangup-call
 
 | HTTP-статус | Текст ошибки | Примечание |
 | --- | --- | --- |
-| 405 | Method Not Allowed | Неверный метод запроса (например, GET).
-Также дополнительно будет заголовок ответа:Allow: POST сообщение в свойстве ответа "message":
-"GET not allowed" (указывается именно текущий метод запроса). |
+| 405 | Method Not Allowed | Неверный метод запроса (например, GET). Также дополнительно будет заголовок ответа:Allow: POST сообщение в свойстве ответа "message": "GET not allowed" (указывается именно текущий метод запроса). |
 | 406 | Not Acceptable | Неверный заголовок &#39;​Accept&#39;. |
-| 415 | Unsupported Media Type | Отсутствует заголовок &#39;​Content-Type&#39;.
-Сообщение в свойстве ответа "message": "Content-Type not set" |
-| 415 | Unsupported Media Type | Неверный заголовок &#39;​Content-Type&#39;.
-Сообщение в свойстве ответа "message": "Content-Type &#39;xxx&#39; not supported" (указывается именно текущее значение заголовка). |
-| 400 | Bad Request | Неверные данные для авторизации (при отсутствии заголовка Authorization или неверном формате данных в заголовке).
-Также дополнительно будет заголовок ответа:WWW-Authenticate: Bearer error="invalid\_request"сообщение в свойстве ответа "message": "Invalid authorization data". |
-| 401 | Unauthorized | Авторизация не удалась (неверный или неактуальный/устаревший ключ).
-Также дополнительно будет заголовок ответа: WWW-Authenticate: Bearer error="invalid\_token" сообщение в свойстве ответа "message": "Authorization failed". |
-| 400 | Bad Request
- | Неверная подпись запроса (вычислена неверно).
-Cообщениевсвойствеответа "message":"Invalid request signature". |
-| 402 | Bad Request | Метка времени находится за пределами допустимого диапазона.
-Cообщение в свойстве ответа "message":"Invalid request timestamp". |
-| 403 | 403 Forbidden | Доступ запрещён (на данный момент только, когда аккаунт компании заблокирован).
-Также дополнительно будет заголовок ответа. WWW-Authenticate: Bearer error= `insufficient_scope` исообщениевсвойствеответа "message": `Access denied` |
-| 404 | Not Found
- | Метод не существует. Сообщение в свойстве ответа "message": `Requested method not found` |
-| 423 | Bad Request | Неверный формат данных запроса (при значении заголовка &#39;Content-Type&#39; как &#39;application/json&#39;).
-Сообщение в свойстве ответа "message":`Invalid JSON data` |
+| 415 | Unsupported Media Type | Отсутствует заголовок &#39;​Content-Type&#39;. Сообщение в свойстве ответа "message": "Content-Type not set" |
+| 415 | Unsupported Media Type | Неверный заголовок &#39;​Content-Type&#39;. Сообщение в свойстве ответа "message": "Content-Type &#39;xxx&#39; not supported" (указывается именно текущее значение заголовка). |
+| 400 | Bad Request | Неверные данные для авторизации (при отсутствии заголовка Authorization или неверном формате данных в заголовке). Также дополнительно будет заголовок ответа:WWW-Authenticate: Bearer error="invalid\_request"сообщение в свойстве ответа "message": "Invalid authorization data". |
+| 401 | Unauthorized | Авторизация не удалась (неверный или неактуальный/устаревший ключ). Также дополнительно будет заголовок ответа: WWW-Authenticate: Bearer error="invalid\_token" сообщение в свойстве ответа "message": "Authorization failed". |
+| 400 | Bad Request | Неверная подпись запроса (вычислена неверно). Cообщениевсвойствеответа "message":"Invalid request signature". |
+| 402 | Bad Request | Метка времени находится за пределами допустимого диапазона. Cообщение в свойстве ответа "message":"Invalid request timestamp". |
+| 403 | 403 Forbidden | Доступ запрещён (на данный момент только, когда аккаунт компании заблокирован). Также дополнительно будет заголовок ответа. WWW-Authenticate: Bearer error= `insufficient_scope` исообщениевсвойствеответа "message": `Access denied` |
+| 404 | Not Found | Метод не существует. Сообщение в свойстве ответа "message": `Requested method not found` |
+| 423 | Bad Request | Неверный формат данных запроса (при значении заголовка &#39;Content-Type&#39; как &#39;application/json&#39;). Сообщение в свойстве ответа "message":`Invalid JSON data` |
 | 422 | Unprocessable entity | Неверные или отсутствующие параметры запроса. Отсутствуют несколько обязательных параметров.Cообщение в свойстве ответа "message": `Required parameters missing: &#39;paramName1&#39;, &#39;paramName2&#39;, &#39;paramName3` |
-| 422 | Unprocessable entity | Неверные или отсутствующие параметры запроса. Отсутствует один обязательный параметр.
-Cообщение в свойстве ответа "message": `Required parameter missing: &#39;paramName` |
-| 422 | Unprocessable entity | Неверные или отсутствующие параметры запроса. Неверный формат или данные в нескольких параметрах (только если присутствуют все обязательные параметры).
-Cообщениевсвойствеответа "message": `Invalid parameters: &#39;paramName1&#39;, &#39;paramName2&#39; |
+| 422 | Unprocessable entity | Неверные или отсутствующие параметры запроса. Отсутствует один обязательный параметр. Cообщение в свойстве ответа "message": `Required parameter missing: &#39;paramName` |
+| 422 | Unprocessable entity | Неверные или отсутствующие параметры запроса. Неверный формат или данные в нескольких параметрах (только если присутствуют все обязательные параметры). Cообщениевсвойствеответа "message": `Invalid parameters: &#39;paramName1&#39;, &#39;paramName2&#39; |
 | 422 | Unprocessable entity | Неверные или отсутствующие параметры запроса. Неверный формат или данные параметра (только если присутствуют все обязательные параметры).
 Cообщениевсвойствеответа "message": &#39;Invalid parameter: `paramName` |
 
-1

@@ -696,13 +696,10 @@ vpbx/get-calls
 | Calls | Array\_object | Да | Массив объектов, каждый из которых содержит свойства |
 |vpbxId | String | Дв | Идентификатор вызова в виртуальной АТС |
 |active | String | Нет | Флаг активности вызова, true или false |
-|direction | String | Нет | Направление вызова, возможные значения: <ul><li>"in" – входящий вызов;</li><li>"out" – исходящий вызов</l><ul> |
+|direction | String | Нет | Направление вызова, возможные значения: <ul><li>"in" – входящий вызов;</li><li>"out" – исходящий вызов</li><ul> |
 |clid | String | Да | Номер вызывающего абонента (номер А) |
 |dnid | String | Да | Номер вызываемого абонента (номер Б) |
-|status | String | Да | Статус вызова, возможные значения:
-</li><li>"answered" – отвеченный вызов;
-</li><li>"no answer" – вызов без ответа
- |
+|status | String | Да | Статус вызова, возможные значения: <ul><li>"answered" – отвеченный вызов;</li><li>"no answer" – вызов без ответа</li><ul> |
 |startTime | Timestamp | Да | Время начала вызова, Unix timestamp |
 |answerTime | Timestamp | Да | Время ответа на вызов, Unix timestamp или null, если вызов без ответа |
 |endTime | Timestamp | Да | Время окончания вызова, Unix timestamp или null, если вызов активен |
@@ -802,17 +799,11 @@ vpbx/get-active-calls
 | --- | --- | --- | --- |
 | activeCalls | Array\_object | Да | Массив объектов, каждый из которых содержит свойства: |
 |vpbxId | String | Да | Идентификатор вызова в виртуальной АТС |
-|direction | String | Да | Направление вызова, возможные значения:
-</li><li>"in" – входящий вызов;
-</li><li>"out" – исходящий вызов
- |
+|direction | String | Да | Направление вызова, возможные значения: <ul><li>"in" – входящий вызов;</li><li>"out" – исходящий вызов</li><ul> |
 |startTime | Timestamp | Да | Время начала вызова, Unix timestamp |
 |answerTime | Timestamp | Да | Время ответа на вызов, Unix timestamp или null, если вызов без ответа |
 |endTime | Timestamp | Да | Время окончания вызова, Unix timestamp или null |
-|status | String | Да | Статус вызова, возможные значения:
-</li><li>"answered" – отвеченный вызов;
-</li><li>"no answer" – вызов без ответа
- |
+|status | String | Да | Статус вызова, возможные значения: <ul><li>"in" – входящий вызов;</li><li>"out" – исходящий вызов</li><ul> |
 |active | String | Да | Флаг активности вызова, всегда true |
 |clid | String | Да | Номер вызывающего (номер А) |
 |dnid | String | Да | Номер вызываемого (номер Б) |
@@ -1845,8 +1836,7 @@ vpbx/pickup-call
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|result | String | Да | Объект result – может принимать одно из 2-х значений: <ul><li>"success" - подключение произошло;
-</li><li>"error" - подключения не произошло</li><ul>  |
+|result | String | Да | Объект result – может принимать одно из 2-х значений: <ul><li>"success" - подключение произошло;</li><li>"error" - подключения не произошло</li><ul>  |
 
 ### Пример ответа
 
@@ -1873,7 +1863,7 @@ vpbx/transfer-call
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами: <ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 |toNumber | String | Да | Внутренний номер, который ответит на звонок. 2-4 цифры, целые |
 
 ### Пример запроса
@@ -1893,7 +1883,7 @@ vpbx/transfer-call
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|result | String | Да | Объект result – может принимать одно из 2-х значений:<ul><li>"success" - подключение произошло;</li><li>"error" - подключения не произошло</li><ul> |
+|result | String | Да | Объект result – может принимать одно из 2-х значений: <ul><li>"success" - подключение произошло;</li><li>"error" - подключения не произошло</li><ul> |
 
 ### Пример ответа
 
@@ -1920,7 +1910,7 @@ vpbx/listen-call
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами: <ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 |toNumber | String | Да | Внутренний номер, который ответит на звонок. 2-4 цифры, целые |
 
 ### Пример запроса
@@ -1940,7 +1930,7 @@ vpbx/listen-call
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|result | String | Да | Объект result – может принимать одно из 2-х значений:<ul><li>"success" - подключение произошло;</li><li>"error" - подключения не произошло</li><ul> |
+|result | String | Да | Объект result – может принимать одно из 2-х значений: <ul><li>"success" - подключение произошло;</li><li>"error" - подключения не произошло</li><ul> |
 
 ### Пример ответа
 
@@ -1967,7 +1957,7 @@ vpbx/get/hangup-call
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами: <ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 
 ### Пример запроса
 
@@ -1985,7 +1975,7 @@ vpbx/get/hangup-call
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|result | String | Да | Объект result – может принимать одно из 2-х значений:<ul><li>"success" - подключение произошло;</l><li>"error" - подключения не произошло</li><ul> |
+|result | String | Да | Объект result – может принимать одно из 2-х значений: <ul><li>"success" - подключение произошло;</l><li>"error" - подключения не произошло</li><ul> |
 
 ### Пример ответа
 

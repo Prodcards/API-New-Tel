@@ -63,7 +63,6 @@ company/get-state
 				}
 			}
 		}
-	
 <a name="2"></a>
 ## Получение информации из профиля компании
 Метод возвращает данные профиля компании: ID, наименование, сведения о регистрации и пр.
@@ -137,7 +136,7 @@ company/get-members
 |Id | Integer | Да | ID сотрудника |
 |name | String | Да | Имя сотрудника |
 |email | String | Да | Адрес электронной почты |
-|internalNumber | String( | Нет | Внутренний номер телефона, строка или null, если внутренний номер не назначен |
+|internalNumber | String | Нет | Внутренний номер телефона, строка или null, если внутренний номер не назначен |
 |personalNumber | String | Нет | Личный номер телефона, строка или null, если личный номер не задан |
 |timeZone | String | Нет | Временная зона |
 
@@ -280,9 +279,9 @@ company/get-numbers
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
 | numbers | Object | Да | Объект содержит 3 массива, external, internal и virtual |
-|external | | Да | Cписок внешних номеров телефонов. |
-|internal | | Да | Cписок внутренних номеров телефонов. |
-|virtual | | Да | Cписок виртуальных номеров телефонов. |
+|external | Array_string | Да | Cписок внешних номеров телефонов. |
+|internal | Array_string | Да | Cписок внутренних номеров телефонов. |
+|virtual | Array_string | Да | Cписок виртуальных номеров телефонов. |
 
 ### Пример ответа
 
@@ -294,7 +293,7 @@ company/get-numbers
 			"data": {
 				"result": "success",
 				"numbers": {
-					"external": ["74951089830", "74956408992", "74997540086", "78007776117", "78122428679", "79311110537", "79311110714"],
+					"external": ["74951089830", "78122428679", "79311110537", "79311110714"],
 					"internal": ["100", "101", "111", "303", "900", "902"],
 					"virtual": []
 				}
@@ -315,13 +314,9 @@ company/get-numbers
 Метод возвращает данные профиля авторизованного пользователя-сотрудника компании: имя, email, номера телефонов. Под авторизованным пользователем понимается тот пользователь, API ключи которого используются при генерации Bearer токена.
 
 ### Наименование метода
-
 user/get-profile-details
-
 ### Атрибуты запроса
-
 Нет
-
 ### Пример запроса
 
 	URL
@@ -381,13 +376,9 @@ user/get-profile-details
 ##
 <a name="8"></a>
 ## Инициирование простого вызова
-
 Метод осуществляет соединение между номерами и источника и назначения, отображая при вызовах имеющийся внешний номер компании.
-
 ### Наименование метода
-
 call/start-simple-call
-
 ### Атрибуты запроса
 
 | Атрибут | Тип данных | Обяз. | Примечание |
@@ -413,9 +404,7 @@ call/start-simple-call
 		}
 
 ### Атрибуты ответа
-
 свойство callId – идентификатор сгенерированного вызова, строка
-
 ### Возможные коды ошибок
 
 | HTTP-статус | Текст ошибки | Примечание |
@@ -438,13 +427,9 @@ call/start-simple-call
 
 <a name="9"></a>
 ## Инициирование вызова системы  CallPassword
-
 Метод осуществляет вызов на номер назначения, отображая в качестве источника номер из пула системы CallPassword для использования авторизации по звонку.
-
 ### Наименование метода
-
 call/start-password-call
-
 ### Атрибуты запроса
 
 | Атрибут | Тип данных | Обяз. | Примечание |
@@ -481,10 +466,7 @@ call/start-password-call
 |status | String | Да | Статус дозвона. Строка или null |
 |oper | String | Да | Оператор |
 |region | String | Да | Регион |
-|isValidNumber | String | Да | Валидность телефонного номера. Может принимать значения:
-</li><li>"true" – номер валиден;
-</li><li>"false" – номер не валиден
- |
+|isValidNumber | String | Да | Валидность телефонного номера. Может принимать значения: <ul><li>"true" – номер валиден;</li><li>"false" – номер не валиден</li><ul> |
 |reasonCode | String | Да | Код причины |
 |phoneNumber | String | Да | Номер телефона |
 
@@ -509,16 +491,11 @@ call/start-password-call
 				}
 			}
 		}
-
 <a name="10"></a>
 ## Инициирование голосового вызова системы CallPassword
-
 Метод осуществляет вызов на номер назначения, отображая в качестве источника номер из пула системы CallPassword для использования авторизации по звонку. В отличие от метода start-password-call Пин код пользователю озвучивает робот при совершении телефонного вызова.
-
 ### Наименование метода
-
 call/start-voice-password-call
-
 ### Атрибуты запроса
 
 | Атрибут | Тип данных | Обяз. | Примечание |
@@ -541,7 +518,7 @@ call/start-voice-password-call
 		{
 			"async": 0,
 			"dstNumber": "79035675124",
-			"text": "ВашПИНкод 1236",
+			"text": "Ваш ПИН код 1236",
 			"timeout": 10
 		}
 
@@ -555,10 +532,7 @@ call/start-voice-password-call
 |status | String | Да | Статус дозвона. Строка или null |
 |oper | String | Да | Оператор |
 |region | String | Да | Регион |
-|isValidNumber | String | Да | Валидность телефонного номера. Может принимать значения:
-</li><li>"true" – номер валиден;
-</li><li>"false" – номер не валиден
- |
+|isValidNumber | String | Да | Валидность телефонного номера. Может принимать значения: <ul><li>"true" – номер валиден;</li><li>"false" – номер не валиден</li><ul> |
 |reasonCode | String | Да | Код причины или null |
 |phoneNumber | String | Да | Номер телефона или null |
 
@@ -655,7 +629,7 @@ call/get-vpbx-id
 [Получение статуса вызова](#18)
 
 [Получение времени начала вызова](#19)
-0
+
 [Получение времени ответа на вызов](#20)
 
 [Получение времени окончания вызова](#21)
@@ -692,7 +666,6 @@ call/get-vpbx-id
 
 [Завершение активного вызова](#37)
 
-##
 <a name="12"></a>
 ## Получение данных о вызовах за 24 часа
 
@@ -723,10 +696,7 @@ vpbx/get-calls
 | Calls | Array\_object | Да | Массив объектов, каждый из которых содержит свойства |
 |vpbxId | String | Дв | Идентификатор вызова в виртуальной АТС |
 |active | String | Нет | Флаг активности вызова, true или false |
-|direction | String | Нет | Направление вызова, возможные значения:
-</li><li>"in" – входящий вызов;
-</li><li>"out" – исходящий вызов
- |
+|direction | String | Нет | Направление вызова, возможные значения: <ul><li>"in" – входящий вызов;</li><li>"out" – исходящий вызов</l><ul> |
 |clid | String | Да | Номер вызывающего абонента (номер А) |
 |dnid | String | Да | Номер вызываемого абонента (номер Б) |
 |status | String | Да | Статус вызова, возможные значения:
@@ -946,16 +916,10 @@ vpbx/get-call-details
 | callDetails | Object | Да | Список идентификаторов вызовов в виртуальной АТС |
 |vpbxId | String | Да | Идентификатор вызова в виртуальной АТС |
 |active | String | Да | Флаг активности вызова, true или false |
-|direction | String | Да | Направление вызова, возможные значения:
-</li><li>"in" – входящий вызов;
-</li><li>"out" – исходящий вызов
- |
+|direction | String | Да | Направление вызова, возможные значения: <ul><li>"in" – входящий вызов;</li><li>"out" – исходящий вызов</li><ul> |
 |clid | String | Да | Номер вызывающего (номер А) |
 |dnid | String | Да | Номер вызываемого (номер Б) |
-|status | String | Да | Статус вызова, возможные значения:
-</li><li>"answered" – отвеченный вызов;
-</li><li>"no answer" – вызов без ответа
- |
+|status | String | Да | Статус вызова, возможные значения: <ul><li>"answered" – отвеченный вызов;</li><li>"no answer" – вызов без ответа</li><ul> |
 |startTime | Timestamp | Да | Время начала вызова, Unix timestamp |
 |answerTime | Timestamp | Да | Время ответа на вызов, Unix timestamp или null, если вызов без ответа |
 |endTime | Timestamp | Да | Время окончания вызова, Unix timestamp или null, если вызов активен |
@@ -1004,12 +968,7 @@ vpbx/get-call-direction
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами: <ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 
 ### Пример запроса
 
@@ -1027,10 +986,7 @@ vpbx/get-call-direction
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|callDirection | String | Да | Направление вызова, возможные значения:
-</li><li>"in" – входящий вызов;
-</li><li>"out" – исходящий вызов
- |
+|callDirection | String | Да | Направление вызова, возможные значения: <ul><li>"in" – входящий вызов;</li><li>"out" – исходящий вызов</li><ul> |
 
 ### Возможные коды ошибок
 
@@ -1064,12 +1020,7 @@ vpbx/get-call-status
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами: <ul><li>"in"call/get-vpbx-id;</li><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li> vpbx/get-call-details</li><ul> |
 
 ### Пример запроса
 
@@ -1087,10 +1038,7 @@ vpbx/get-call-status
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|callStatus | String | Да | Статус вызова, возможные значения:
-</li><li>"answered" – отвеченный вызов;
-</li><li>"no answer" – вызов без ответа
- |
+|callStatus | String | Да | Статус вызова, возможные значения: <ul><li>"answered" – отвеченный вызов;</li><li>"no answer" – вызов без ответа</li><ul> |
 
 ### Возможные коды ошибок
 
@@ -1124,12 +1072,7 @@ vpbx/get-call-start-time
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 
 ### Пример запроса
 
@@ -1181,12 +1124,7 @@ vpbx/get-call-answer-time
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 
 ### Пример запроса
 
@@ -1210,7 +1148,7 @@ vpbx/get-call-answer-time
 
 | HTTP-статус | Текст ошибки | Примечание |
 | --- | --- | --- |
-| 200 | Call not found | Если информации по указанному идентификатору vpbxId нет, будет сформировано сообщение об ошибке "Call not found" |
+| 200 | Call not found | Если информации по указанному идентификатору vpbxId нет, будет сформировано сообщение об ошибке `Call not found` |
 
 ### Пример ответа
 
@@ -1238,12 +1176,7 @@ vpbx/get-call-end-time
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 
 ### Пример запроса
 
@@ -1267,7 +1200,7 @@ vpbx/get-call-end-time
 
 | HTTP-статус | Текст ошибки | Примечание |
 | --- | --- | --- |
-| 200 | Call not found | Если информации по указанному идентификатору vpbxId нет, будет сформировано сообщение об ошибке "Call not found" |
+| 200 | Call not found | Если информации по указанному идентификатору vpbxId нет, будет сформировано сообщение об ошибке `Call not found` |
 
 ### Данные ответа
 
@@ -1295,12 +1228,7 @@ vpbx/get-inbound-call-clid
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 
 ### Пример запроса
 
@@ -1353,12 +1281,7 @@ vpbx/get-inbound-call-dnid
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 
 ### Пример запроса
 
@@ -1411,12 +1334,7 @@ vpbx/get-inbound-call-answered-numbers
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 
 ### Пример запроса
 
@@ -1472,12 +1390,7 @@ vpbx/get-inbound-call-first-answered-number
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 
 ### Пример запроса
 
@@ -1530,12 +1443,7 @@ vpbx/get-outbound-call-internal-clid
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно вызвать методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 
 ### Пример запроса
 
@@ -1588,12 +1496,7 @@ vpbx/get-outbound-call-external-clid
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 
 ### Пример запроса
 
@@ -1646,12 +1549,7 @@ vpbx/get-outbound-call-dnid
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 
 ### Пример запроса
 
@@ -1701,12 +1599,7 @@ vpbx/get-call-record-link
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 
 ### Пример запроса
 
@@ -1884,12 +1777,7 @@ vpbx/get-pickup-call-by-number
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 |toNumber | String | Да | Внутренний номер, который ответит на звонок. 2-4 цифры, целые |
 |ringingNumber | String | Да | Внутренний номер, на который идет звонок. 2-4 цифры, целые |
 
@@ -1910,10 +1798,7 @@ vpbx/get-pickup-call-by-number
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|result | String | Да | Объект result – может принимать одно из 2-х значений:
-</li><li>"success" - подключение произошло;
-</li><li>"error" - подключения не произошло
- |
+|result | String | Да | Объект result – может принимать одно из 2-х значений: <ul><li>"success" - подключение произошло;</li><li>"error" - подключения не произошло</li><ul> |
 
 ### Пример ответа
 
@@ -1940,12 +1825,7 @@ vpbx/pickup-call
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 |toNumber | String | Да | Внутренний номер, который ответит на звонок. 2-4 цифры, целые |
 
 ### Пример запроса
@@ -1965,10 +1845,8 @@ vpbx/pickup-call
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|result | String | Да | Объект result – может принимать одно из 2-х значений:
-</li><li>"success" - подключение произошло;
-</li><li>"error" - подключения не произошло
- |
+|result | String | Да | Объект result – может принимать одно из 2-х значений: <ul><li>"success" - подключение произошло;
+</li><li>"error" - подключения не произошло</li><ul>  |
 
 ### Пример ответа
 
@@ -1995,12 +1873,7 @@ vpbx/transfer-call
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 |toNumber | String | Да | Внутренний номер, который ответит на звонок. 2-4 цифры, целые |
 
 ### Пример запроса
@@ -2020,10 +1893,7 @@ vpbx/transfer-call
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|result | String | Да | Объект result – может принимать одно из 2-х значений:
-</li><li>"success" - подключение произошло;
-</li><li>"error" - подключения не произошло
- |
+|result | String | Да | Объект result – может принимать одно из 2-х значений:<ul><li>"success" - подключение произошло;</li><li>"error" - подключения не произошло</li><ul> |
 
 ### Пример ответа
 
@@ -2050,12 +1920,7 @@ vpbx/listen-call
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 |toNumber | String | Да | Внутренний номер, который ответит на звонок. 2-4 цифры, целые |
 
 ### Пример запроса
@@ -2075,10 +1940,7 @@ vpbx/listen-call
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|result | String | Да | Объект result – может принимать одно из 2-х значений:
-</li><li>"success" - подключение произошло;
-</li><li>"error" - подключения не произошло
- |
+|result | String | Да | Объект result – может принимать одно из 2-х значений:<ul><li>"success" - подключение произошло;</li><li>"error" - подключения не произошло</li><ul> |
 
 ### Пример ответа
 
@@ -2105,12 +1967,7 @@ vpbx/get/hangup-call
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:
-- call/get-vpbx-id;
-- vpbx/get-calls-list;
-- vpbx/get-active-calls-list;
-- vpbx/get-call-details
- |
+|vpbxId | String | Да | Идентификатор вызова в виртуальной АТС, 40 шестнадцатеричных цифр в нижнем регистре, который можно получить методами:<ul><li>call/get-vpbx-id;</li><li>vpbx/get-calls-list;</li><li>vpbx/get-active-calls-list;</li><li>vpbx/get-call-details</li><ul> |
 
 ### Пример запроса
 
@@ -2128,7 +1985,7 @@ vpbx/get/hangup-call
 
 | Атрибут | Тип данных | Обяз. | Примечание |
 | --- | --- | --- | --- |
-|result | String | Да | Объект result – может принимать одно из 2-х значений:<ul><li>"success" - подключение произошло;</l><li><lu><li>"error" - подключения не произошло |
+|result | String | Да | Объект result – может принимать одно из 2-х значений:<ul><li>"success" - подключение произошло;</l><li>"error" - подключения не произошло</li><ul> |
 
 ### Пример ответа
 
